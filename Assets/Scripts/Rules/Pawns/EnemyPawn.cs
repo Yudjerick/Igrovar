@@ -1,9 +1,6 @@
 using UnityEngine;
 
-/// <summary>
-/// Player, monsters and other entities that have figure should inherit this class
-/// </summary>
-public class Pawn : MonoBehaviour
+public class EnemyPawn : Pawn
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

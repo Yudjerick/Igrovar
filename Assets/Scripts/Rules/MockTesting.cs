@@ -1,16 +1,11 @@
+using NaughtyAttributes;
 using UnityEngine;
 
 public class MockTesting : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [Button]
+    public void DoMovement()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        RuleEventBus.MovementActionPlayedEvent?.Invoke();
     }
 }
