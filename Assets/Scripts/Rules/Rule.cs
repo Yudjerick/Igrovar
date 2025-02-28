@@ -2,10 +2,9 @@ using UnityEngine;
 
 public abstract class Rule : MonoBehaviour
 {
-    void Start()
-    {
-        
-    }
+    public abstract string GetRuleAsString();
+
+    public abstract void Execute();
 
     // Update is called once per frame
     void Update()

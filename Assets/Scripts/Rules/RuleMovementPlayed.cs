@@ -2,7 +2,7 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovementPlayedRule : MonoBehaviour
+public class RuleMovementPlayed : Rule
 {
     public PawnWord target;
     public List<Vector2> directions;
@@ -10,8 +10,7 @@ public class MovementPlayedRule : MonoBehaviour
     public int distance;
 
     public string testRuleString;
-
-    public string GetAsString()
+    public override string GetRuleAsString()
     {
         return "Перемещение: " + target.GetStringWord() + " двигается на север, юг, запад или восток на " + distance + "  клетку";
     }
@@ -25,7 +24,7 @@ public class MovementPlayedRule : MonoBehaviour
     {
         RuleEventBus.MovementActionPlayedEvent -= Execute;
     }
-    public void Execute()
+    public override void Execute()
     {
         print("Исполнение правила перемещения");
         MovementManager.target = target.GetTarget();
@@ -39,6 +38,8 @@ public class MovementPlayedRule : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        testRuleString = GetAsString();
+        testRuleString = GetRuleAsString();
     }
+
+    
 }

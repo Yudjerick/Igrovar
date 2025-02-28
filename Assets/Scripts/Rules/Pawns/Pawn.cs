@@ -15,6 +15,11 @@ public class Pawn : MonoBehaviour
         var targetWorldPos = new Vector3(pos.x, transform.position.y, pos.y);
         StartCoroutine(MoveSmoothly(transform.position, targetWorldPos));
     }
+
+    public void TakeDamage(float damage)
+    {
+
+    }
     void Start()
     {
         

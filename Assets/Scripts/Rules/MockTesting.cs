@@ -8,4 +8,10 @@ public class MockTesting : MonoBehaviour
     {
         RuleEventBus.MovementActionPlayedEvent?.Invoke();
     }
+
+    [Button]
+    public void DoAtack() 
+    {
+        RuleEventBus.AtackPlayedEvent?.Invoke();
+    }
 }
