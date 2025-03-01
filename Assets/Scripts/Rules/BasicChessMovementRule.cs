@@ -14,14 +14,13 @@ public class BasicChessMovementRule : Rule
     public List<Vector2> atackDirections;
     [SerializeField] private GameObject clickableFieldPrefab;
     [SerializeField] private GameObject atackClickableFieldPrefab;
-    public DistanceWord distanceWord;
-    public int minDistance;
-    public int maxDistance;
+    public DistanceWord moveDistanceWord;
+    public DistanceWord atackDistanceWord;
     public bool canJump = false;
     public string testRuleString;
     public override string GetRuleAsString()
     {
-        return "Перемещение: " + target.GetStringWord() + " двигается на север, юг, запад или восток на " + distanceWord.word ;
+        return "";
     }
     public override void Execute()
     {
@@ -36,7 +35,7 @@ public class BasicChessMovementRule : Rule
         foreach (var dir in moveDirections)
         {
             Pawn pawn = target.GetTarget();
-            for (int i = minDistance; i <= maxDistance; i++)
+            for (int i = moveDistanceWord.minDistance; i <= moveDistanceWord.maxDistance; i++)
             {
 
                 var boardPos = pawn.boardPosition + new Vector2(Mathf.Round(dir.x), Mathf.Round(dir.y)) * i;
@@ -71,7 +70,7 @@ public class BasicChessMovementRule : Rule
         foreach (var dir in atackDirections)
         {
             Pawn pawn = target.GetTarget();
-            for (int i = minDistance; i <= maxDistance; i++)
+            for (int i = atackDistanceWord.minDistance; i <= atackDistanceWord.maxDistance; i++)
             {
 
                 var boardPos = pawn.boardPosition + new Vector2(Mathf.Round(dir.x), Mathf.Round(dir.y)) * i;
