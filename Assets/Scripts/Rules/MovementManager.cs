@@ -6,6 +6,7 @@ public static class MovementManager
 {
     public static Pawn target;
     public static List<ClickableField> clickableFields = new List<ClickableField>();
+
     public static void DestroyAllClickableFields()
     {
         //Debug.Log(clickableFields);

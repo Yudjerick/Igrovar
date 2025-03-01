@@ -119,6 +119,70 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &18245876
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 18245877}
+  - component: {fileID: 18245878}
+  m_Layer: 0
+  m_Name: BishopRule
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &18245877
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18245876}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1230563919}
+  - {fileID: 1024021581}
+  m_Father: {fileID: 1913784413}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &18245878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18245876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12b2009bcd490f04aa3ff536cc8a160f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1230563920}
+  moveDirections:
+  - {x: 1, y: 1}
+  - {x: -1, y: 1}
+  - {x: -1, y: -1}
+  - {x: 1, y: -1}
+  atackDirections:
+  - {x: 1, y: 1}
+  - {x: -1, y: 1}
+  - {x: -1, y: -1}
+  - {x: 1, y: -1}
+  clickableFieldPrefab: {fileID: 8210129851370369445, guid: 80574ad5a0a2a96458a69b68c71eea07, type: 3}
+  atackClickableFieldPrefab: {fileID: 8210129851370369445, guid: 43b0b4009f15d954690b3351e2a7841e, type: 3}
+  distanceWord: {fileID: 1024021582}
+  minDistance: 1
+  maxDistance: 5
+  canJump: 0
+  testRuleString: 
 --- !u!1 &61935151
 GameObject:
   m_ObjectHideFlags: 0
@@ -766,6 +830,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveTime: 0.5
   boardPosition: {x: 0, y: 0}
+--- !u!1 &771246007
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 771246008}
+  - component: {fileID: 771246009}
+  m_Layer: 0
+  m_Name: PlayerWord
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &771246008
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771246007}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1088626071}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &771246009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771246007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a613319c2215d6445a0ea8b48f6df38d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &807037808
 GameObject:
   m_ObjectHideFlags: 0
@@ -862,6 +970,156 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1024021580
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1024021581}
+  - component: {fileID: 1024021582}
+  m_Layer: 0
+  m_Name: AnyDistanceWord
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1024021581
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024021580}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 18245877}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1024021582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024021580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 696f0ea45aeecc845b878aeed0580970, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minDistance: 1
+  maxDistance: 100
+  word: "\u043B\u044E\u0431\u043E\u0435 \u0440\u0430\u0441\u0441\u0442\u043E\u044F\u043D\u0438\u0435"
+--- !u!1 &1088626070
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1088626071}
+  - component: {fileID: 1088626072}
+  m_Layer: 0
+  m_Name: PawnRule
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1088626071
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088626070}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 771246008}
+  - {fileID: 2033658134}
+  m_Father: {fileID: 1913784413}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1088626072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088626070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12b2009bcd490f04aa3ff536cc8a160f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 771246009}
+  moveDirections:
+  - {x: 0, y: 1}
+  atackDirections:
+  - {x: 1, y: 1}
+  - {x: -1, y: 1}
+  clickableFieldPrefab: {fileID: 8210129851370369445, guid: 80574ad5a0a2a96458a69b68c71eea07, type: 3}
+  atackClickableFieldPrefab: {fileID: 8210129851370369445, guid: 43b0b4009f15d954690b3351e2a7841e, type: 3}
+  distanceWord: {fileID: 2033658135}
+  minDistance: 1
+  maxDistance: 1
+  canJump: 0
+  testRuleString: 
+--- !u!1 &1230563918
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1230563919}
+  - component: {fileID: 1230563920}
+  m_Layer: 0
+  m_Name: PlayerWord
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1230563919
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230563918}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 18245877}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1230563920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230563918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a613319c2215d6445a0ea8b48f6df38d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1913784412
 GameObject:
   m_ObjectHideFlags: 0
@@ -872,6 +1130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1913784413}
   - component: {fileID: 1913784414}
+  - component: {fileID: 1913784415}
   m_Layer: 0
   m_Name: RulesPaper
   m_TagString: Untagged
@@ -893,6 +1152,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2142853578}
+  - {fileID: 18245877}
+  - {fileID: 1088626071}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1913784414
@@ -907,6 +1168,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcb6a0a1185480f4bb3faa41acb1f510, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1913784415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913784412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9edfbcd58b9ec974aa02daf8fc2a2f13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PawnPlayedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1088626072}
+        m_TargetAssemblyTypeName: RuleMovementPlayed, Assembly-CSharp
+        m_MethodName: Execute
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  RookPlayedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2142853579}
+        m_TargetAssemblyTypeName: RuleMovementPlayed, Assembly-CSharp
+        m_MethodName: Execute
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  BishopPlayedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 18245878}
+        m_TargetAssemblyTypeName: RuleMovementPlayed, Assembly-CSharp
+        m_MethodName: Execute
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2006777060
 GameObject:
   m_ObjectHideFlags: 0
@@ -951,6 +1269,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a613319c2215d6445a0ea8b48f6df38d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2033658133
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2033658134}
+  - component: {fileID: 2033658135}
+  m_Layer: 0
+  m_Name: AnyDistanceWord
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2033658134
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033658133}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1088626071}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2033658135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033658133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 696f0ea45aeecc845b878aeed0580970, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minDistance: 1
+  maxDistance: 100
+  word: "\u043B\u044E\u0431\u043E\u0435 \u0440\u0430\u0441\u0441\u0442\u043E\u044F\u043D\u0438\u0435"
 --- !u!1 &2123325259
 GameObject:
   m_ObjectHideFlags: 0
@@ -1085,7 +1450,7 @@ GameObject:
   - component: {fileID: 2142853578}
   - component: {fileID: 2142853579}
   m_Layer: 0
-  m_Name: PawnRule
+  m_Name: RookRule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1121,12 +1486,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 2006777062}
-  directions:
+  moveDirections:
+  - {x: 1, y: 0}
+  - {x: -1, y: 0}
+  - {x: 0, y: 1}
+  - {x: 0, y: -1}
+  atackDirections:
   - {x: 1, y: 0}
   - {x: -1, y: 0}
   - {x: 0, y: 1}
   - {x: 0, y: -1}
   clickableFieldPrefab: {fileID: 8210129851370369445, guid: 80574ad5a0a2a96458a69b68c71eea07, type: 3}
+  atackClickableFieldPrefab: {fileID: 8210129851370369445, guid: 43b0b4009f15d954690b3351e2a7841e, type: 3}
   distanceWord: {fileID: 807037810}
   minDistance: 1
   maxDistance: 5

@@ -1,14 +1,21 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public static class RuleEventBus
+public class RuleEventBus: MonoBehaviour 
 {
-    public static Action<Pawn,FieldType> MovedToFieldEvent;
-    public static Action<Pawn, FieldType> MovedFromFieldEvent;
-    public static Action<Pawn, FieldType> FinishedTurnOnFieldEvent;
-    public static Action MovementActionPlayedEvent;
-    public static Action AtackPlayedEvent;
+    public static RuleEventBus instance;
 
-    public static Action PawnEvent;
+    private void Start()
+    {
+        instance = this;
+    }
+
+    public Action<Pawn,FieldType> MovedToFieldEvent;
+    public Action<Pawn, FieldType> MovedFromFieldEvent;
+    public Action<Pawn, FieldType> FinishedTurnOnFieldEvent;
+    public UnityEvent PawnPlayedEvent;
+    public UnityEvent RookPlayedEvent;
+    public UnityEvent BishopPlayedEvent;
 }

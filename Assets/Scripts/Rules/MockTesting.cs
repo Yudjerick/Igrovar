@@ -4,14 +4,20 @@ using UnityEngine;
 public class MockTesting : MonoBehaviour
 {
     [Button]
-    public void DoMovement()
+    public void PlayPawn()
     {
-        RuleEventBus.MovementActionPlayedEvent?.Invoke();
+        RuleEventBus.instance.PawnPlayedEvent?.Invoke();
     }
 
     [Button]
-    public void DoAtack() 
+    public void PlayRook()
     {
-        RuleEventBus.AtackPlayedEvent?.Invoke();
+        RuleEventBus.instance.RookPlayedEvent?.Invoke();
+    }
+
+    [Button]
+    public void PlayBishop()
+    {
+        RuleEventBus.instance.BishopPlayedEvent?.Invoke();
     }
 }
