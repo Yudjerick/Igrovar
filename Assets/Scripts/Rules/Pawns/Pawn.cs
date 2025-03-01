@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -11,9 +12,11 @@ public class Pawn : MonoBehaviour
     
     public void Move(Vector2 pos)
     {
+        Board.Instance.objectsOnBoard[((int)Math.Round(boardPosition.x))][(int)Math.Round(boardPosition.y)] = null;
         boardPosition = pos;
-        var targetWorldPos = new Vector3(pos.x, transform.position.y, pos.y);
+        var targetWorldPos = Board.Instance.BoardToWorld(pos) + Vector3.up * transform.position.y;
         StartCoroutine(MoveSmoothly(transform.position, targetWorldPos));
+        Board.Instance.objectsOnBoard[((int)Math.Round(boardPosition.x))][(int)Math.Round(boardPosition.y)] = gameObject;
     }
 
     public void TakeDamage(float damage)
@@ -22,7 +25,8 @@ public class Pawn : MonoBehaviour
     }
     void Start()
     {
-        
+        transform.position = Board.Instance.BoardToWorld(boardPosition) + transform.position.y * Vector3.up;
+        Board.Instance.objectsOnBoard[((int)Math.Round(boardPosition.x))][(int)Math.Round(boardPosition.y)] = gameObject;
     }
 
     IEnumerator MoveSmoothly(Vector3 oldPos, Vector3 targetPos)

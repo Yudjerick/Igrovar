@@ -4,7 +4,7 @@ public class ClickableField : MonoBehaviour
 {
     private void OnMouseDown()
     {
-        MovementManager.target.Move(new Vector2(transform.position.x, transform.position.z));
+        MovementManager.target.Move(Board.Instance.WorldToBoard(transform.position));
         MovementManager.DestroyAllClickableFields();
     }
 }

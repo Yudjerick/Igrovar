@@ -9,4 +9,6 @@ public static class RuleEventBus
     public static Action<Pawn, FieldType> FinishedTurnOnFieldEvent;
     public static Action MovementActionPlayedEvent;
     public static Action AtackPlayedEvent;
+
+    public static Action PawnEvent;
 }
