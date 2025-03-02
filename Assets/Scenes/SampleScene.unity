@@ -2131,7 +2131,7 @@ MonoBehaviour:
   secondDistance: 
   clickableFieldPrefab: {fileID: 8210129851370369445, guid: 80574ad5a0a2a96458a69b68c71eea07, type: 3}
   atackClickableFieldPrefab: {fileID: 8210129851370369445, guid: 43b0b4009f15d954690b3351e2a7841e, type: 3}
-  pawn: {fileID: 0}
+  pawn: {fileID: 630084867}
 --- !u!114 &671526234
 MonoBehaviour:
   m_ObjectHideFlags: 0

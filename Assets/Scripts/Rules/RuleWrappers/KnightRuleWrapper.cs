@@ -41,7 +41,7 @@ public class KnightRuleWrapper : RuleWrapper
                     i <= distanceWordContainer1.distanceWord.maxDistance; i++)
                 {
                     for (int j = distanceWordContainer2.distanceWord.minDistance;
-                    j <= distanceWordContainer1.distanceWord.maxDistance; j++)
+                    j <= distanceWordContainer2.distanceWord.maxDistance; j++)
                     {
                         knightRule.firstDirection.Add(firstDir);
                         knightRule.secondDirection.Add(secondDir);
@@ -57,10 +57,10 @@ public class KnightRuleWrapper : RuleWrapper
             foreach (var secondDir in directionWordContainer4.directionWord.directions)
             {
                 for (int i = distanceWordContainer3.distanceWord.minDistance;
-                    i <= distanceWordContainer1.distanceWord.maxDistance; i++)
+                    i <= distanceWordContainer3.distanceWord.maxDistance; i++)
                 {
                     for (int j = distanceWordContainer4.distanceWord.minDistance;
-                    j <= distanceWordContainer1.distanceWord.maxDistance; j++)
+                    j <= distanceWordContainer4.distanceWord.maxDistance; j++)
                     {
                         knightRule.firstDirection.Add(firstDir);
                         knightRule.secondDirection.Add(secondDir);

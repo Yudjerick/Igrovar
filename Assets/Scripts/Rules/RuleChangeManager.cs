@@ -54,13 +54,14 @@ public class RuleChangeManager : MonoBehaviour
 
     public void StartDistanceWordReplacing(DistanceWord distanceWord)
     {
+        containersBuff.Clear();
         distanceWordBuff = distanceWord;
         foreach (GameObject rule in rules)
         {
             var ruleWrapper = rule.GetComponent<RuleWrapper>();
             var distanceContainers = ruleWrapper.GetDistanceWords();
 
-            containersBuff = distanceContainers.Select(x => (WordContainer)x).ToList();
+            containersBuff.AddRange(distanceContainers.Select(x => (WordContainer)x).ToList());
             foreach (var container in distanceContainers)
             {
                 container.ActivateButton();

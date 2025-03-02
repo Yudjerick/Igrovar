@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class KnightRule : Rule
 {
@@ -24,13 +25,22 @@ public class KnightRule : Rule
         {
             var boardPos = pawn.boardPosition + firstDirection[i] * firstDistance[i] + secondDirection[i] * secondDistance[i];
             if (Board.Instance.IsOnBoard(boardPos))
-                atackFields.Add(boardPos);
+            {
+                if (!atackFields.Contains(boardPos))
+                {
+                    atackFields.Add(boardPos);
+                }
+               
+            }
+                
+                
         }
         return atackFields;
     }
 
     public void CreateClickableFields()
     {
+        MovementManager.target = pawn;
         var fieldsPositions = GetAtackFields();
         foreach(var pos in fieldsPositions)
         {
