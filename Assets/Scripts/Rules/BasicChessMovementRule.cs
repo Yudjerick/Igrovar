@@ -29,6 +29,8 @@ public class BasicChessMovementRule : Rule
         CreateAtackFields();
     }
 
+
+
     protected virtual void CreateMovementFields()
     {
         MovementManager.target = target.GetTarget();

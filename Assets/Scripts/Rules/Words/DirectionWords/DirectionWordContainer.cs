@@ -3,10 +3,9 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 [Serializable]
-public class DirectionWordContainer: MonoBehaviour, IPointerClickHandler
+public class DirectionWordContainer: WordContainer, IPointerClickHandler
 {
     public DirectionWord directionWord;
-    public bool clickable;
 
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -16,6 +15,7 @@ public class DirectionWordContainer: MonoBehaviour, IPointerClickHandler
             var inst = Instantiate(RuleChangeManager.instance.directionWordBuff, transform);
             directionWord = inst;
             transform.parent.GetComponent<RuleWrapper>().UpdateRule();
+            RuleChangeManager.instance.FinishReplacing();
         }
     }
 }

@@ -29,14 +29,13 @@ public class RookBishopRuleWrapper : RuleWrapper
 
     public override string GetRuleAsString()
     {
-        return figureName + " ходит и бьет на " + distanceWordContainer.distanceWord.word +
-            " " + dirWordContainer.directionWord.word;
+        return "";
     }
 
     // Update is called once per frame
     void Update()
     {
-        ruleTextPreview = GetRuleAsString();
+        //ruleTextPreview = GetRuleAsString();
     }
 
     [Button]
