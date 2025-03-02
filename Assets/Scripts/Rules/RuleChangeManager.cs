@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class RuleChangeManager : MonoBehaviour
@@ -6,6 +7,7 @@ public class RuleChangeManager : MonoBehaviour
 
     public DistanceWord distanceWordBuff;
     public DirectionWord directionWordBuff;
+    [SerializeField] private List<GameObject> rules;
     void Start()
     {
         instance = this;
