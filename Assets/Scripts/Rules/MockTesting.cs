@@ -20,4 +20,10 @@ public class MockTesting : MonoBehaviour
     {
         RuleEventBus.instance.BishopPlayedEvent?.Invoke();
     }
+
+    [Button]
+    public void PlayKnight()
+    {
+        RuleEventBus.instance.KnightPlayedEvent?.Invoke();
+    }
 }

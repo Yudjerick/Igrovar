@@ -68,6 +68,25 @@ public class BasicChessMovementRule : Rule
 
     protected virtual void CreateAtackFields()
     {
+        var atackFieldsPositions = GetAtackFields();
+        foreach (var pos in atackFieldsPositions)
+        {
+            var atackTarget = Board.Instance.objectsOnBoard[((int)Math.Round(pos.x))][(int)Math.Round(pos.y)];
+            if (atackTarget != null)
+            {
+                var clickableField = Instantiate(atackClickableFieldPrefab,
+                Board.Instance.BoardToWorld(pos),
+                Quaternion.identity);
+                var atackField = clickableField.GetComponentInChildren<AtackClickableField>();
+                atackField.atackTarget = atackTarget;
+                MovementManager.clickableFields.Add(atackField);
+                if (!canJump)
+                {
+                    break;
+                }
+            }
+        }
+
         MovementManager.target = target.GetTarget();
         foreach (var dir in atackDirections)
         {
@@ -106,5 +125,30 @@ public class BasicChessMovementRule : Rule
         testRuleString = GetRuleAsString();
     }
 
-    
+    public override List<Vector2> GetAtackFields()
+    {
+        var atackFields = new List<Vector2>();
+        MovementManager.target = target.GetTarget();
+        foreach (var dir in atackDirections)
+        {
+            Pawn pawn = target.GetTarget();
+            for (int i = atackDistanceWord.minDistance; i <= atackDistanceWord.maxDistance; i++)
+            {
+
+                var boardPos = pawn.boardPosition + new Vector2(Mathf.Round(dir.x), Mathf.Round(dir.y)) * i;
+                if (Board.Instance.IsOnBoard(boardPos))
+                {
+                    atackFields.Add(boardPos);
+                    if (!canJump)
+                    {
+                        break;
+                    }
+                }
+                else { break; }
+
+            }
+
+        }
+        return atackFields;
+    }
 }
