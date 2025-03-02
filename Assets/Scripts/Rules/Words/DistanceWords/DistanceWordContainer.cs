@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 [Serializable]
-public class DistanceWordContainer
+public class DistanceWordContainer: MonoBehaviour
 {
     public DistanceWord distanceWord;
 }
