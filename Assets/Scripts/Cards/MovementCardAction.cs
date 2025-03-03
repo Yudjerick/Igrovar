@@ -29,5 +29,7 @@ public class MovementCardAction : CardAction
         {
             RuleEventBus.instance.QueenPlayedEvent?.Invoke();
         }
+        GameStateManager.instance.gameState = GameState.Movement;
+
     }
 }

@@ -7,7 +7,7 @@ public abstract class Rule : MonoBehaviour
 
     public abstract void Execute();
 
-    public abstract List<Vector2> GetAtackFields();
+    public abstract List<Vector2> GetAtackFields(Pawn pawn);
 
     // Update is called once per frame
     void Update()

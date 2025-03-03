@@ -7,17 +7,32 @@ public class Card : MonoBehaviour
     [SerializeField] private float highlightOffset;
     private void OnMouseEnter()
     {
-        transform.localPosition += Vector3.back * highlightOffset;
+        if(GameStateManager.instance.gameState == GameState.ClickableCards)
+        {
+            transform.localPosition += Vector3.back * highlightOffset;
+        }
+        
     }
 
     private void OnMouseExit()
     {
-        transform.localPosition -= Vector3.back * highlightOffset;
+        if (GameStateManager.instance.gameState == GameState.ClickableCards)
+        {
+            transform.localPosition -= Vector3.back * highlightOffset;
+        }
+        
     }
 
     private void OnMouseDown()
     {
-        action.Execute();
+        if (GameStateManager.instance.gameState == GameState.ClickableCards)
+        {
+            transform.localPosition += Vector3.up * 2 * highlightOffset;
+            action.Execute();
+            GameStateManager.instance.cardToDesttroy = this;
+        }
+            
+
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

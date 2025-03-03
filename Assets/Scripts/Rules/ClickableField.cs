@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class ClickableField : MonoBehaviour
 {
+    public bool jumpField;
     protected virtual void OnMouseDown()
     {
-        MovementManager.target.Move(Board.Instance.WorldToBoard(transform.position));
-        MovementManager.DestroyAllClickableFields();
+        MovementManager.instance.target.Move(Board.Instance.WorldToBoard(transform.position), jumpField);
+        MovementManager.instance.DestroyAllClickableFields();
     }
 }

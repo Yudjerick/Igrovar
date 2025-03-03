@@ -5,8 +5,8 @@ using UnityEngine;
 public class Board : MonoBehaviour
 {
     public static Board Instance;
-    [SerializeField] private int xSize = 5;
-    [SerializeField] private int ySize = 5;
+    public int xSize = 5;
+    public int ySize = 5;
     [SerializeField] private Vector3 boardZero;
     [SerializeField] private float cellSize = 1;
     public List<List<FieldType>> fieldTypes;

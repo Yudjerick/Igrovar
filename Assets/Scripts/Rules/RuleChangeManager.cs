@@ -75,5 +75,7 @@ public class RuleChangeManager : MonoBehaviour
         {
             container.DeactivateButton();
         }
+        GameStateManager.instance.gameState = GameState.EnemyTurn; 
+        GameStateManager.instance.DestroyCard();
     }
 }

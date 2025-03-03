@@ -18,7 +18,7 @@ public class KnightRule : Rule
         CreateClickableFields();
     }
 
-    public override List<Vector2> GetAtackFields()
+    public override List<Vector2> GetAtackFields(Pawn pawn)
     {
         var atackFields = new List<Vector2>();
         for(int i = 0; i < firstDirection.Count; i++)
@@ -40,8 +40,8 @@ public class KnightRule : Rule
 
     public void CreateClickableFields()
     {
-        MovementManager.target = pawn;
-        var fieldsPositions = GetAtackFields();
+        MovementManager.instance.target = pawn;
+        var fieldsPositions = GetAtackFields(pawn);
         foreach(var pos in fieldsPositions)
         {
             var atackTarget = Board.Instance.objectsOnBoard[((int)Math.Round(pos.x))][(int)Math.Round(pos.y)];
@@ -50,7 +50,8 @@ public class KnightRule : Rule
                 var clickableField = Instantiate(clickableFieldPrefab,
                          Board.Instance.BoardToWorld(pos),
                          Quaternion.identity);
-                MovementManager.clickableFields.Add(clickableField.GetComponentInChildren<ClickableField>());
+                MovementManager.instance.clickableFields.Add(clickableField.GetComponentInChildren<ClickableField>());
+                clickableField.GetComponentInChildren<ClickableField>().jumpField = true;
             }
             else
             {
@@ -59,7 +60,8 @@ public class KnightRule : Rule
                 Quaternion.identity);
                 var atackField = clickableField.GetComponentInChildren<AtackClickableField>();
                 atackField.atackTarget = atackTarget;
-                MovementManager.clickableFields.Add(atackField);
+                atackField.jumpField = true;
+                MovementManager.instance.clickableFields.Add(atackField);
             }
         }
     }

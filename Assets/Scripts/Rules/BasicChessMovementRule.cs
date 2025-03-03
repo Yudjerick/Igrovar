@@ -33,7 +33,7 @@ public class BasicChessMovementRule : Rule
 
     protected virtual void CreateMovementFields()
     {
-        MovementManager.target = target.GetTarget();
+        MovementManager.instance.target = target.GetTarget();
         foreach (var dir in moveDirections)
         {
             Pawn pawn = target.GetTarget();
@@ -48,7 +48,7 @@ public class BasicChessMovementRule : Rule
                         var clickableField = Instantiate(clickableFieldPrefab,
                         Board.Instance.BoardToWorld(boardPos),
                         Quaternion.identity);
-                        MovementManager.clickableFields.Add(clickableField.GetComponentInChildren<ClickableField>());
+                        MovementManager.instance.clickableFields.Add(clickableField.GetComponentInChildren<ClickableField>());
                     }
                     else
                     {
@@ -68,7 +68,7 @@ public class BasicChessMovementRule : Rule
 
     protected virtual void CreateAtackFields()
     {
-        var atackFieldsPositions = GetAtackFields();
+        var atackFieldsPositions = GetAtackFields(target.GetTarget());
         foreach (var pos in atackFieldsPositions)
         {
             var atackTarget = Board.Instance.objectsOnBoard[((int)Math.Round(pos.x))][(int)Math.Round(pos.y)];
@@ -79,7 +79,7 @@ public class BasicChessMovementRule : Rule
                 Quaternion.identity);
                 var atackField = clickableField.GetComponentInChildren<AtackClickableField>();
                 atackField.atackTarget = atackTarget;
-                MovementManager.clickableFields.Add(atackField);
+                MovementManager.instance.clickableFields.Add(atackField);
                 if (!canJump)
                 {
                     break;
@@ -87,7 +87,7 @@ public class BasicChessMovementRule : Rule
             }
         }
 
-        MovementManager.target = target.GetTarget();
+        MovementManager.instance.target = target.GetTarget();
         foreach (var dir in atackDirections)
         {
             Pawn pawn = target.GetTarget();
@@ -105,7 +105,7 @@ public class BasicChessMovementRule : Rule
                         Quaternion.identity);
                         var atackField = clickableField.GetComponentInChildren<AtackClickableField>();
                         atackField.atackTarget = atackTarget;
-                        MovementManager.clickableFields.Add(atackField);
+                        MovementManager.instance.clickableFields.Add(atackField);
                         if (!canJump)
                         {
                             break;
@@ -125,13 +125,12 @@ public class BasicChessMovementRule : Rule
         testRuleString = GetRuleAsString();
     }
 
-    public override List<Vector2> GetAtackFields()
+    public override List<Vector2> GetAtackFields(Pawn pawn)
     {
         var atackFields = new List<Vector2>();
-        MovementManager.target = target.GetTarget();
+        MovementManager.instance.target = target.GetTarget();
         foreach (var dir in atackDirections)
         {
-            Pawn pawn = target.GetTarget();
             for (int i = atackDistanceWord.minDistance; i <= atackDistanceWord.maxDistance; i++)
             {
 

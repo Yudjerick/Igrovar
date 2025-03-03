@@ -1,13 +1,20 @@
 using NUnit.Framework;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class MovementManager
+public class MovementManager: MonoBehaviour 
 {
-    public static Pawn target;
-    public static List<ClickableField> clickableFields = new List<ClickableField>();
+    public static MovementManager instance;
+    public Pawn target;
+    public List<ClickableField> clickableFields = new List<ClickableField>();
 
-    public static void DestroyAllClickableFields()
+    private void Start()
+    {
+        instance = this;
+    }
+
+    public void DestroyAllClickableFields()
     {
         //Debug.Log(clickableFields);
         foreach (ClickableField field in clickableFields)
@@ -17,5 +24,23 @@ public static class MovementManager
             
         }
         clickableFields.Clear();
+        
+        GameStateManager.instance.DestroyCard();
+        
+        StartCoroutine(WaitForFinishMovement());
+    }
+
+    IEnumerator WaitForFinishMovement()
+    {
+        yield return new WaitUntil(() => !target.isMoving);
+        if(target is PlayerPawn)
+        {
+            GameStateManager.instance.gameState = GameState.EnemyTurn;
+        }
+        if (target is EnemyPawn)
+        {
+            GameStateManager.instance.gameState = GameState.EnemyTurn;
+        }
+
     }
 }
