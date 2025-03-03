@@ -2,7 +2,7 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DirectionWord : MonoBehaviour
+public class DirectionWord : Word
 {
     public List<Vector2> directions;
     public string word;

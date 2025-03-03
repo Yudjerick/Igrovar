@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DistanceWord : MonoBehaviour
+public class DistanceWord : Word
 {
     public int minDistance;
     public int maxDistance;

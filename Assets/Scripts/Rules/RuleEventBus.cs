@@ -19,4 +19,6 @@ public class RuleEventBus: MonoBehaviour
     public UnityEvent RookPlayedEvent;
     public UnityEvent BishopPlayedEvent;
     public UnityEvent KnightPlayedEvent;
+    public UnityEvent KingPlayedEvent;
+    public UnityEvent QueenPlayedEvent;
 }

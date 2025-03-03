@@ -26,4 +26,16 @@ public class MockTesting : MonoBehaviour
     {
         RuleEventBus.instance.KnightPlayedEvent?.Invoke();
     }
+
+    [Button]
+    public void PlayKing()
+    {
+        RuleEventBus.instance.KingPlayedEvent?.Invoke();
+    }
+
+    [Button]
+    public void PlayQueen()
+    {
+        RuleEventBus.instance.QueenPlayedEvent?.Invoke();
+    }
 }
