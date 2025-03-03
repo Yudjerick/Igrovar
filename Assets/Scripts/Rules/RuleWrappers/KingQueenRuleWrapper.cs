@@ -19,7 +19,7 @@ public class KingQueenRuleWrapper: RuleWrapper
 
     public override List<DirectionWordContainer> GetDirectionWords()
     {
-        var directionWords = new List<DirectionWordContainer>() { dirWordContainer };
+        var directionWords = new List<DirectionWordContainer>() { dirWordContainer, dirWordContainer2 };
         return directionWords;
     }
 
